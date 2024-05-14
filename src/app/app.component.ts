@@ -6,12 +6,13 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { Punto1Component } from './components/punto1/punto1.component';
 import { Punto2Component } from './components/punto2/punto2.component';
+import { Punto5Component } from './components/punto5/punto5.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterModule, HeaderComponent, FooterComponent, HomeComponent, Punto1Component, Punto2Component],
+  imports: [CommonModule, RouterModule, HeaderComponent, FooterComponent, HomeComponent, Punto1Component, Punto2Component, Punto5Component],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
