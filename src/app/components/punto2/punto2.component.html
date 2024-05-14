@@ -1,0 +1,51 @@
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <button (click)="iniciarJuego()" class="btn btn-primary btn-lg rounded-pill mb-4">
+        <i class="bi bi-play-fill me-2"></i> Jugar
+      </button>
+
+      <div *ngIf="!juegoTerminado" class="card rounded-3">
+        <div class="card-header bg-primary text-white rounded-top-3">
+          <h4 class="text-center">Contando {{ opcionPregunta }}</h4>
+        </div>
+        <div class="card-body text-center">
+          <h1 class="display-4 mb-4 text-warning">{{ palabraActual }}</h1>
+          <p class="lead">¿Cuántas {{ opcionPregunta }} tiene la palabra?</p>
+          <div class="btn-group btn-group-lg" role="group" aria-label="Opciones de respuesta">
+            <button (click)="verificarRespuesta(1)" class="btn btn-outline-primary rounded-pill m-1">1</button>
+            <button (click)="verificarRespuesta(2)" class="btn btn-outline-primary rounded-pill m-1">2</button>
+            <button (click)="verificarRespuesta(3)" class="btn btn-outline-primary rounded-pill m-1">3</button>
+            <button (click)="verificarRespuesta(4)" class="btn btn-outline-primary rounded-pill m-1">4</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-4" *ngIf="juegoTerminado">
+    <div class="col-md-6 text-center">
+      <button type="button" class="btn btn-success btn-lg rounded-pill" data-bs-toggle="modal" data-bs-target="#resultadosModal">
+        <i class="bi bi-trophy me-2"></i> Ver resultados
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="juegoTerminado" class="modal fade" id="resultadosModal" tabindex="-1" aria-labelledby="resultadosModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white rounded-top-3">
+        <h5 class="modal-title" id="resultadosModalLabel">Resultados</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <h3 class="mb-3">¡Juego terminado!</h3>
+        <p class="lead">Aciertos: {{ aciertos }}</p>
+        <p class="lead">Errores: {{ errores }}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary rounded-pill" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
